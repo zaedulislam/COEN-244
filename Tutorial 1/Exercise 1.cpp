@@ -4,74 +4,80 @@ using namespace std;
 
 class bank
 {
-    int acno;
-    char nm[100], acctype[100];
-    float bal;
-    
-    public:
-        bank(int acc_no, char* name, char* acc_type, float balance)  //Parameterized Constructor
-        {
-            acno = acc_no;
-            strcpy(nm, name);
-            strcpy(acctype, acc_type);
-            bal = balance;
-        }
-        void deposit();
-        void withdraw();
-        void display();
+    int accountNumber;
+    string name, accountType;
+    float balance;
+
+public:
+    bank(int accountNumber1, string name, string accountType, float balance)  //Parameterized Constructor
+    {
+        this->accountNumber = accountNumber;
+        this->name = name;
+        this->accountType = accountType;
+        this->balance = balance;
+    }
+
+    void deposit();
+    void withdraw();
+    void display();
 };
 
 
 void bank::deposit()   //depositing an amount
 {
-    int damt1;
-    cout << "\n Enter Deposit Amount = ";
-    cin >> damt1;
-    bal += damt1;
+    float depositAmount;
+    cout << "\nEnter Deposit Amount : ";
+    cin >> depositAmount;
+    balance += depositAmount;
 }
 
 
 void bank::withdraw()  //withdrawing an amount
 {
-    int wamt1;
-    cout << "\n Enter Withdraw Amount = ";
-    cin >> wamt1;
-    if (wamt1 > bal)
-        cout << "\n Cannot Withdraw Amount";
-    bal -= wamt1;
+    float withdrawAmount;
+    cout << "Enter Withdraw Amount : ";
+    cin >> withdrawAmount;
+
+    if (withdrawAmount > balance){
+        cout << "\nCannot Withdraw Amount!";
+        return;
+    }
+
+
+    balance -= withdrawAmount;
 }
 
 
 void bank::display()  //displaying the details
 {
     cout << "\n ----------------------";
-    cout << "\n Accout No. : " << acno;
-    cout << "\n Name : " << nm;
-    cout << "\n Account Type : " << acctype;
-    cout << "\n Balance : " << bal;
+    cout << "\nAccount No : " << accountNumber;
+    cout << "\nName : " << name;
+    cout << "\nAccount Type : " << accountType;
+    cout << "\nBalance : " << balance;
 }
 
 
-int main()
-{
+int main() {
     int acc_no;
-    char name[100], acc_type[100];
+    string name, accountType;
     float balance;
-    
-    cout << "\n Enter Details: \n";
-    cout << "-----------------------";
-    cout << "\n Accout No. ";
+
+    cout << "\nEnter Details:\n";
+    cout << "-----------------------\n";
+    cout << "Account No : ";
     cin >> acc_no;
-    cout << "\n Name : ";
+    cout << "Name : ";
     cin >> name;
-    cout << "\n Account Type : ";
-    cin >> acc_type;
-    cout << "\n Balance : ";
+    cout << "Account Type : ";
+    cin >> accountType;
+    cout << "Balance : ";
     cin >> balance;
 
-    bank b1(acc_no, name, acc_type, balance);  //object is created
+    bank b1(acc_no, name, accountType, balance);  //object is created
     b1.deposit(); //
     b1.withdraw(); // calling member functions
     b1.display(); //
-    
+
     return 0;
+}
