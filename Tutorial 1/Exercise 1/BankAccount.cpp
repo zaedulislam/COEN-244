@@ -2,9 +2,7 @@
 // Created by Zaedul Islam on 2023-01-14.
 //
 #include <iostream>
-#include <string>
-#include "BankAccount.h"
-using namespace std;
+#include "bankAccount.h"
 
 // Default Constructor
 BankAccount::BankAccount(){}
@@ -25,7 +23,7 @@ void BankAccount::depositAmount()
     double depositAmount;
     std::cout << "\nEnter Deposit Amount: ";
 
-    cin >> depositAmount;
+    std::cin >> depositAmount;
 
     balance += depositAmount;
 }
@@ -35,11 +33,11 @@ void BankAccount::depositAmount()
 void BankAccount::withdrawAmount()
 {
     float withdrawAmount;
-    cout << "Enter Withdraw Amount: ";
-    cin >> withdrawAmount;
+    std::cout << "Enter Withdraw Amount: ";
+    std::cin >> withdrawAmount;
 
     if (withdrawAmount > balance){
-        cout << "\nCannot Withdraw Amount!";
+        std::cout << "\nCannot Withdraw Amount!";
         return;
     }
 
@@ -50,9 +48,9 @@ void BankAccount::withdrawAmount()
 // Display account details
 void BankAccount::displayAccountDetails()
 {
-    cout << "\n-----------------------";
-    cout << "\nAccount No: " << accountNumber;
-    cout << "\nName: " << accountName;
-    cout << "\nAccount Type: " << accountType;
-    cout << "\nBalance: " << balance;
+    std::cout << "\n-----------------------";
+    std::cout << "\nAccount No: " << accountNumber;
+    std::cout << "\nName: " << accountName;
+    std::cout << "\nAccount Type: " << accountType;
+    std::cout << "\nBalance: " << balance;
 }
